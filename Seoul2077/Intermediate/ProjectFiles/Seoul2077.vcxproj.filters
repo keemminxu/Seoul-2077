@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Seoul2077.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{22D7CFEC-2B4E-4FF4-9969-BBE85330D091}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Seoul2077.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\Seoul2077Editor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{77EB077A-76A6-455A-824D-ADD8966E468C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Seoul2077">
+      <UniqueIdentifier>{4042BF13-1921-46D0-AE58-0EF0D010143E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Seoul2077\Seoul2077.Build.cs">
+      <Filter>Source\Seoul2077</Filter>
+    </None>
+    <Filter Include="Source\Seoul2077\Private">
+      <UniqueIdentifier>{0C2D6B88-5FF3-4331-B917-9A99900B952A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_Player01.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\PlayerFire.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\PlayerMove.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\Seoul2077.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\Seoul2077GameModeBase.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\Seoul2077\Public">
+      <UniqueIdentifier>{56A0FA0B-95AD-4543-837C-FFED798A4584}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_Player01.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\PlayerFire.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\PlayerMove.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\Seoul2077.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\Seoul2077GameModeBase.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
