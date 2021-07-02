@@ -1,0 +1,651 @@
+
+---------------------------------------------
+firstpersonhud.cpp
+
+
+
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "FirstpersonHUD.h"
+#include "Engine/Canvas.h"
+#include "Engine/Texture2D.h"
+#include "TextureResource.h"
+#include "CanvasItem.h"
+#include "UObject/ConstructorHelpers.h"
+
+AFirstpersonHUD::AFirstpersonHUD()
+{
+	// Set the crosshair texture
+	static ConstructorHelpers::FObjectFinder<UTexture2D> CrosshairTexObj(TEXT("/Game/FirstPerson/Textures/FirstPersonCrosshair"));
+	CrosshairTex = CrosshairTexObj.Object;
+}
+
+
+void AFirstpersonHUD::DrawHUD()
+{
+	Super::DrawHUD();
+
+	// Draw very simple crosshair
+
+	// find center of the Canvas
+	const FVector2D Center(Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
+
+	// offset by half the texture's dimensions so that the center of the texture aligns with the center of the Canvas
+	const FVector2D CrosshairDrawPosition( (Center.X),
+										   (Center.Y + 20.0f));
+
+	// draw the crosshair
+	FCanvasTileItem TileItem( CrosshairDrawPosition, CrosshairTex->Resource, FLinearColor::White);
+	TileItem.BlendMode = SE_BLEND_Translucent;
+	Canvas->DrawItem( TileItem );
+}
+
+
+-------------------------------------------------
+firstpersonhud.h
+
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#pragma once 
+
+#include "CoreMinimal.h"
+#include "GameFramework/HUD.h"
+#include "FirstpersonHUD.generated.h"
+
+UCLASS()
+class AFirstpersonHUD : public AHUD
+{
+	GENERATED_BODY()
+
+public:
+	AFirstpersonHUD();
+
+	/** Primary draw call for the HUD */
+	virtual void DrawHUD() override;
+
+private:
+	/** Crosshair asset pointer */
+	class UTexture2D* CrosshairTex;
+
+};
+
+------------------------------------------------------
+총알 cpp
+
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "FirstpersonProjectile.h"
+#include "GameFramework/ProjectileMovementComponent.h"
+#include "Components/SphereComponent.h"
+
+AFirstpersonProjectile::AFirstpersonProjectile() 
+{
+	// Use a sphere as a simple collision representation
+	CollisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
+	CollisionComp->InitSphereRadius(5.0f);
+	CollisionComp->BodyInstance.SetCollisionProfileName("Projectile");
+	CollisionComp->OnComponentHit.AddDynamic(this, &AFirstpersonProjectile::OnHit);		// set up a notification for when this component hits something blocking
+
+	// Players can't walk on it
+	CollisionComp->SetWalkableSlopeOverride(FWalkableSlopeOverride(WalkableSlope_Unwalkable, 0.f));
+	CollisionComp->CanCharacterStepUpOn = ECB_No;
+
+	// Set as root component
+	RootComponent = CollisionComp;
+
+	// Use a ProjectileMovementComponent to govern this projectile's movement
+	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
+	ProjectileMovement->UpdatedComponent = CollisionComp;
+	ProjectileMovement->InitialSpeed = 3000.f;
+	ProjectileMovement->MaxSpeed = 3000.f;
+	ProjectileMovement->bRotationFollowsVelocity = true;
+	ProjectileMovement->bShouldBounce = true;
+
+	// Die after 3 seconds by default
+	InitialLifeSpan = 3.0f;
+}
+
+void AFirstpersonProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
+	// Only add impulse and destroy projectile if we hit a physics
+	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
+	{
+		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+
+		Destroy();
+	}
+}
+------------------------------------------------------------------
+총알 헤더
+
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "FirstpersonProjectile.generated.h"
+
+class USphereComponent;
+class UProjectileMovementComponent;
+
+UCLASS(config=Game)
+class AFirstpersonProjectile : public AActor
+{
+	GENERATED_BODY()
+
+	/** Sphere collision component */
+	UPROPERTY(VisibleDefaultsOnly, Category=Projectile)
+	USphereComponent* CollisionComp;
+
+	/** Projectile movement component */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
+	UProjectileMovementComponent* ProjectileMovement;
+
+public:
+	AFirstpersonProjectile();
+
+	/** called when projectile hits something */
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	/** Returns CollisionComp subobject **/
+	USphereComponent* GetCollisionComp() const { return CollisionComp; }
+	/** Returns ProjectileMovement subobject **/
+	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+};
+
+-------------------------------------
+게임모드 cpp
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "FirstpersonGameMode.h"
+#include "FirstpersonHUD.h"
+#include "FirstpersonCharacter.h"
+#include "UObject/ConstructorHelpers.h"
+
+AFirstpersonGameMode::AFirstpersonGameMode()
+	: Super()
+{
+	// set default pawn class to our Blueprinted character
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/FirstPersonCPP/Blueprints/FirstPersonCharacter"));
+	DefaultPawnClass = PlayerPawnClassFinder.Class;
+
+	// use our custom HUD class
+	HUDClass = AFirstpersonHUD::StaticClass();
+}
+--------------------------------
+게임모드 헤더
+
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/GameModeBase.h"
+#include "FirstpersonGameMode.generated.h"
+
+UCLASS(minimalapi)
+class AFirstpersonGameMode : public AGameModeBase
+{
+	GENERATED_BODY()
+
+public:
+	AFirstpersonGameMode();
+};
+-----------------------------------
+캐릭터 cpp
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#include "FirstpersonCharacter.h"
+#include "FirstpersonProjectile.h"
+#include "Animation/AnimInstance.h"
+#include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "Components/InputComponent.h"
+#include "GameFramework/InputSettings.h"
+#include "HeadMountedDisplayFunctionLibrary.h"
+#include "Kismet/GameplayStatics.h"
+#include "MotionControllerComponent.h"
+#include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
+
+DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
+
+//////////////////////////////////////////////////////////////////////////
+// AFirstpersonCharacter
+
+AFirstpersonCharacter::AFirstpersonCharacter()
+{
+	// Set size for collision capsule
+	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
+
+	// set our turn rates for input
+	BaseTurnRate = 45.f;
+	BaseLookUpRate = 45.f;
+
+	// Create a CameraComponent	
+	FirstPersonCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
+	FirstPersonCameraComponent->SetupAttachment(GetCapsuleComponent());
+	FirstPersonCameraComponent->SetRelativeLocation(FVector(-39.56f, 1.75f, 64.f)); // Position the camera
+	FirstPersonCameraComponent->bUsePawnControlRotation = true;
+
+	// Create a mesh component that will be used when being viewed from a '1st person' view (when controlling this pawn)
+	Mesh1P = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMesh1P"));
+	Mesh1P->SetOnlyOwnerSee(true);
+	Mesh1P->SetupAttachment(FirstPersonCameraComponent);
+	Mesh1P->bCastDynamicShadow = false;
+	Mesh1P->CastShadow = false;
+	Mesh1P->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
+	Mesh1P->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
+
+	// Create a gun mesh component
+	FP_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
+	FP_Gun->SetOnlyOwnerSee(false);			// otherwise won't be visible in the multiplayer
+	FP_Gun->bCastDynamicShadow = false;
+	FP_Gun->CastShadow = false;
+	// FP_Gun->SetupAttachment(Mesh1P, TEXT("GripPoint"));
+	FP_Gun->SetupAttachment(RootComponent);
+
+	FP_MuzzleLocation = CreateDefaultSubobject<USceneComponent>(TEXT("MuzzleLocation"));
+	FP_MuzzleLocation->SetupAttachment(FP_Gun);
+	FP_MuzzleLocation->SetRelativeLocation(FVector(0.2f, 48.4f, -10.6f));
+
+	// Default offset from the character location for projectiles to spawn
+	GunOffset = FVector(100.0f, 0.0f, 10.0f);
+
+	// Note: The ProjectileClass and the skeletal mesh/anim blueprints for Mesh1P, FP_Gun, and VR_Gun 
+	// are set in the derived blueprint asset named MyCharacter to avoid direct content references in C++.
+
+	// Create VR Controllers.
+	R_MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("R_MotionController"));
+	R_MotionController->MotionSource = FXRMotionControllerBase::RightHandSourceId;
+	R_MotionController->SetupAttachment(RootComponent);
+	L_MotionController = CreateDefaultSubobject<UMotionControllerComponent>(TEXT("L_MotionController"));
+	L_MotionController->SetupAttachment(RootComponent);
+
+	// Create a gun and attach it to the right-hand VR controller.
+	// Create a gun mesh component
+	VR_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("VR_Gun"));
+	VR_Gun->SetOnlyOwnerSee(false);			// otherwise won't be visible in the multiplayer
+	VR_Gun->bCastDynamicShadow = false;
+	VR_Gun->CastShadow = false;
+	VR_Gun->SetupAttachment(R_MotionController);
+	VR_Gun->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));
+
+	VR_MuzzleLocation = CreateDefaultSubobject<USceneComponent>(TEXT("VR_MuzzleLocation"));
+	VR_MuzzleLocation->SetupAttachment(VR_Gun);
+	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
+	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
+
+	// Uncomment the following line to turn motion controllers on by default:
+	//bUsingMotionControllers = true;
+}
+
+void AFirstpersonCharacter::BeginPlay()
+{
+	// Call the base class  
+	Super::BeginPlay();
+
+	//Attach gun mesh component to Skeleton, doing it here because the skeleton is not yet created in the constructor
+	FP_Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+
+	// Show or hide the two versions of the gun based on whether or not we're using motion controllers.
+	if (bUsingMotionControllers)
+	{
+		VR_Gun->SetHiddenInGame(false, true);
+		Mesh1P->SetHiddenInGame(true, true);
+	}
+	else
+	{
+		VR_Gun->SetHiddenInGame(true, true);
+		Mesh1P->SetHiddenInGame(false, true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////
+// Input
+
+void AFirstpersonCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	// set up gameplay key bindings
+	check(PlayerInputComponent);
+
+	// Bind jump events
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	// Bind fire event
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AFirstpersonCharacter::OnFire);
+
+	// Enable touchscreen input
+	EnableTouchscreenMovement(PlayerInputComponent);
+
+	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AFirstpersonCharacter::OnResetVR);
+
+	// Bind movement events
+	PlayerInputComponent->BindAxis("MoveForward", this, &AFirstpersonCharacter::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AFirstpersonCharacter::MoveRight);
+
+	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
+	// "turn" handles devices that provide an absolute delta, such as a mouse.
+	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
+	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("TurnRate", this, &AFirstpersonCharacter::TurnAtRate);
+	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("LookUpRate", this, &AFirstpersonCharacter::LookUpAtRate);
+}
+
+void AFirstpersonCharacter::OnFire()
+{
+	// try and fire a projectile
+	if (ProjectileClass != nullptr)
+	{
+		UWorld* const World = GetWorld();
+		if (World != nullptr)
+		{
+			if (bUsingMotionControllers)
+			{
+				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
+				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
+				World->SpawnActor<AFirstpersonProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+			}
+			else
+			{
+				const FRotator SpawnRotation = GetControlRotation();
+				// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+				const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+
+				//Set Spawn Collision Handling Override
+				FActorSpawnParameters ActorSpawnParams;
+				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+
+				// spawn the projectile at the muzzle
+				World->SpawnActor<AFirstpersonProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			}
+		}
+	}
+
+	// try and play the sound if specified
+	if (FireSound != nullptr)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	}
+
+	// try and play a firing animation if specified
+	if (FireAnimation != nullptr)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		if (AnimInstance != nullptr)
+		{
+			AnimInstance->Montage_Play(FireAnimation, 1.f);
+		}
+	}
+}
+
+void AFirstpersonCharacter::OnResetVR()
+{
+	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+}
+
+void AFirstpersonCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
+{
+	if (TouchItem.bIsPressed == true)
+	{
+		return;
+	}
+	if ((FingerIndex == TouchItem.FingerIndex) && (TouchItem.bMoved == false))
+	{
+		OnFire();
+	}
+	TouchItem.bIsPressed = true;
+	TouchItem.FingerIndex = FingerIndex;
+	TouchItem.Location = Location;
+	TouchItem.bMoved = false;
+}
+
+void AFirstpersonCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
+{
+	if (TouchItem.bIsPressed == false)
+	{
+		return;
+	}
+	TouchItem.bIsPressed = false;
+}
+
+//Commenting this section out to be consistent with FPS BP template.
+//This allows the user to turn without using the right virtual joystick
+
+//void AFirstpersonCharacter::TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location)
+//{
+//	if ((TouchItem.bIsPressed == true) && (TouchItem.FingerIndex == FingerIndex))
+//	{
+//		if (TouchItem.bIsPressed)
+//		{
+//			if (GetWorld() != nullptr)
+//			{
+//				UGameViewportClient* ViewportClient = GetWorld()->GetGameViewport();
+//				if (ViewportClient != nullptr)
+//				{
+//					FVector MoveDelta = Location - TouchItem.Location;
+//					FVector2D ScreenSize;
+//					ViewportClient->GetViewportSize(ScreenSize);
+//					FVector2D ScaledDelta = FVector2D(MoveDelta.X, MoveDelta.Y) / ScreenSize;
+//					if (FMath::Abs(ScaledDelta.X) >= 4.0 / ScreenSize.X)
+//					{
+//						TouchItem.bMoved = true;
+//						float Value = ScaledDelta.X * BaseTurnRate;
+//						AddControllerYawInput(Value);
+//					}
+//					if (FMath::Abs(ScaledDelta.Y) >= 4.0 / ScreenSize.Y)
+//					{
+//						TouchItem.bMoved = true;
+//						float Value = ScaledDelta.Y * BaseTurnRate;
+//						AddControllerPitchInput(Value);
+//					}
+//					TouchItem.Location = Location;
+//				}
+//				TouchItem.Location = Location;
+//			}
+//		}
+//	}
+//}
+
+void AFirstpersonCharacter::MoveForward(float Value)
+{
+	if (Value != 0.0f)
+	{
+		// add movement in that direction
+		AddMovementInput(GetActorForwardVector(), Value);
+	}
+}
+
+void AFirstpersonCharacter::MoveRight(float Value)
+{
+	if (Value != 0.0f)
+	{
+		// add movement in that direction
+		AddMovementInput(GetActorRightVector(), Value);
+	}
+}
+
+void AFirstpersonCharacter::TurnAtRate(float Rate)
+{
+	// calculate delta for this frame from the rate information
+	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+}
+
+void AFirstpersonCharacter::LookUpAtRate(float Rate)
+{
+	// calculate delta for this frame from the rate information
+	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+}
+
+bool AFirstpersonCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
+{
+	if (FPlatformMisc::SupportsTouchInput() || GetDefault<UInputSettings>()->bUseMouseForTouch)
+	{
+		PlayerInputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AFirstpersonCharacter::BeginTouch);
+		PlayerInputComponent->BindTouch(EInputEvent::IE_Released, this, &AFirstpersonCharacter::EndTouch);
+
+		//Commenting this out to be more consistent with FPS BP template.
+		//PlayerInputComponent->BindTouch(EInputEvent::IE_Repeat, this, &AFirstpersonCharacter::TouchUpdate);
+		return true;
+	}
+	
+	return false;
+}
+------------------------
+캐릭터 헤더
+// Copyright Epic Games, Inc. All Rights Reserved.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Character.h"
+#include "FirstpersonCharacter.generated.h"
+
+class UInputComponent;
+class USkeletalMeshComponent;
+class USceneComponent;
+class UCameraComponent;
+class UMotionControllerComponent;
+class UAnimMontage;
+class USoundBase;
+
+UCLASS(config=Game)
+class AFirstpersonCharacter : public ACharacter
+{
+	GENERATED_BODY()
+
+	/** Pawn mesh: 1st person view (arms; seen only by self) */
+	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
+	USkeletalMeshComponent* Mesh1P;
+
+	/** Gun mesh: 1st person view (seen only by self) */
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	USkeletalMeshComponent* FP_Gun;
+
+	/** Location on gun mesh where projectiles should spawn. */
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	USceneComponent* FP_MuzzleLocation;
+
+	/** Gun mesh: VR view (attached to the VR controller directly, no arm, just the actual gun) */
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	USkeletalMeshComponent* VR_Gun;
+
+	/** Location on VR gun mesh where projectiles should spawn. */
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	USceneComponent* VR_MuzzleLocation;
+
+	/** First person camera */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* FirstPersonCameraComponent;
+
+	/** Motion controller (right hand) */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UMotionControllerComponent* R_MotionController;
+
+	/** Motion controller (left hand) */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	UMotionControllerComponent* L_MotionController;
+
+public:
+	AFirstpersonCharacter();
+
+protected:
+	virtual void BeginPlay();
+
+public:
+	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	float BaseTurnRate;
+
+	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	float BaseLookUpRate;
+
+	/** Gun muzzle's offset from the characters location */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
+	FVector GunOffset;
+
+	/** Projectile class to spawn */
+	UPROPERTY(EditDefaultsOnly, Category=Projectile)
+	TSubclassOf<class AFirstpersonProjectile> ProjectileClass;
+
+	/** Sound to play each time we fire */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
+	USoundBase* FireSound;
+
+	/** AnimMontage to play each time we fire */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	UAnimMontage* FireAnimation;
+
+	/** Whether to use motion controller location for aiming. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	uint8 bUsingMotionControllers : 1;
+
+protected:
+	
+	/** Fires a projectile. */
+	void OnFire();
+
+	/** Resets HMD orientation and position in VR. */
+	void OnResetVR();
+
+	/** Handles moving forward/backward */
+	void MoveForward(float Val);
+
+	/** Handles stafing movement, left and right */
+	void MoveRight(float Val);
+
+	/**
+	 * Called via input to turn at a given rate.
+	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
+	 */
+	void TurnAtRate(float Rate);
+
+	/**
+	 * Called via input to turn look up/down at a given rate.
+	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
+	 */
+	void LookUpAtRate(float Rate);
+
+	struct TouchData
+	{
+		TouchData() { bIsPressed = false;Location=FVector::ZeroVector;}
+		bool bIsPressed;
+		ETouchIndex::Type FingerIndex;
+		FVector Location;
+		bool bMoved;
+	};
+	void BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location);
+	void EndTouch(const ETouchIndex::Type FingerIndex, const FVector Location);
+	void TouchUpdate(const ETouchIndex::Type FingerIndex, const FVector Location);
+	TouchData	TouchItem;
+	
+protected:
+	// APawn interface
+	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
+	// End of APawn interface
+
+	/* 
+	 * Configures input for touchscreen devices if there is a valid touch interface for doing so 
+	 *
+	 * @param	InputComponent	The input component pointer to bind controls to
+	 * @returns true if touch controls were enabled.
+	 */
+	bool EnableTouchscreenMovement(UInputComponent* InputComponent);
+
+public:
+	/** Returns Mesh1P subobject **/
+	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
+	/** Returns FirstPersonCameraComponent subobject **/
+	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+
+};
+
+
+
+
+
