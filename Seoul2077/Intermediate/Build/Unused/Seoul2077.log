@@ -1,31 +1,3 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\user\Documents\GitHub\Seoul-2077).
-  Creating makefile for Seoul2077Editor (game project files are newer)
-  Parsing headers for Seoul2077Editor
-    Running UnrealHeaderTool "C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Seoul2077.uproject" "C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Seoul2077Editor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\user\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for Seoul2077Editor in 9.9256691 seconds
-  Deleted hot-reload file: C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Binaries\Win64\UE4Editor-Seoul2077-0001.dll
-  Deleted hot-reload file: C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Binaries\Win64\UE4Editor-Seoul2077-0002.dll
-  Deleted hot-reload file: C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0001.lib
-  Deleted hot-reload file: C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0002.lib
-  Building Seoul2077Editor...
-  Using Visual Studio 2019 14.29.30038 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 15 actions with 8 processes...
-    [1/15] Default.rc2
-    [2/15] SharedPCH.Engine.ShadowErrors.cpp
-    [3/15] Seoul2077.cpp
-    [4/15] PlayerMove.cpp
-    [5/15] Seoul2077.init.gen.cpp
-    [6/15] PlayerFire.gen.cpp
-    [7/15] Seoul2077GameModeBase.cpp
-    [8/15] Seoul2077GameModeBase.gen.cpp
-    [9/15] PlayerFire.cpp
-    [10/15] CPP_Player01.gen.cpp
-    [11/15] PlayerMove.gen.cpp
-    [12/15] CPP_Player01.cpp
-    [13/15] UE4Editor-Seoul2077.lib
-       C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077.lib 라이브러리 및 C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077.exp 개체를 생성하고 있습니다.
-    [14/15] UE4Editor-Seoul2077.dll
-       C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077.suppressed.lib 라이브러리 및 C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077.suppressed.exp 개체를 생성하고 있습니다.
-    [15/15] Seoul2077Editor.target
-  Total time in Parallel executor: 22.77 seconds
-  Total execution time: 35.68 seconds
+  Target is up to date
+  Total execution time: 0.50 seconds
