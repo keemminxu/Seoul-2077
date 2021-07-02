@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeSeoul2077_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x117C1607,
+				0x797E9354,
 				0xD3440467,
 				METADATA_PARAMS(nullptr, 0)
 			};

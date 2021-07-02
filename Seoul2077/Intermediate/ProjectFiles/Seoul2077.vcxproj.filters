@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Seoul2077.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{22D7CFEC-2B4E-4FF4-9969-BBE85330D091}</UniqueIdentifier>
+      <UniqueIdentifier>{8CE96FF4-0F5A-41A6-A4FE-A94F01BDD7B4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{77EB077A-76A6-455A-824D-ADD8966E468C}</UniqueIdentifier>
+      <UniqueIdentifier>{B355BABA-E754-4576-A677-39341553B942}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,14 +23,17 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\Seoul2077">
-      <UniqueIdentifier>{4042BF13-1921-46D0-AE58-0EF0D010143E}</UniqueIdentifier>
+      <UniqueIdentifier>{710C88C1-1FF4-4FC5-A0A9-8F60DC574F28}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077\Seoul2077.Build.cs">
       <Filter>Source\Seoul2077</Filter>
     </None>
     <Filter Include="Source\Seoul2077\Private">
-      <UniqueIdentifier>{0C2D6B88-5FF3-4331-B917-9A99900B952A}</UniqueIdentifier>
+      <UniqueIdentifier>{52F7B4DD-9B47-4EC1-ACB2-0E922D200049}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_Player01.cpp">
       <Filter>Source\Seoul2077\Private</Filter>
@@ -48,7 +51,7 @@
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Seoul2077\Public">
-      <UniqueIdentifier>{56A0FA0B-95AD-4543-837C-FFED798A4584}</UniqueIdentifier>
+      <UniqueIdentifier>{CA2989D5-F4D9-47D1-9F9A-2F9287D0F16A}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_Player01.h">
       <Filter>Source\Seoul2077\Public</Filter>

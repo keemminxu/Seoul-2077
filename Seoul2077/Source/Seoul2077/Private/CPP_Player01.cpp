@@ -3,13 +3,12 @@
 
 #include "CPP_Player01.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
-#include <Camera/CameraComponent.h>
-#include "components/CapsuleComponent.h"
-#include <GameFramework/Character.h>
-#include <GameFramework/SpringArmComponent.h>
-#include <GameFramework/Controller.h>
-#include "GameFramework/CharacterMovementComponent.h"
+#include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/Controller.h"
+#include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
 ACPP_Player01::ACPP_Player01()
@@ -18,7 +17,6 @@ ACPP_Player01::ACPP_Player01()
 	PrimaryActorTick.bCanEverTick = true;
 
 	boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
-	RootComponent = boxComp;
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	meshComp->SetupAttachment(boxComp);
 
@@ -29,7 +27,7 @@ ACPP_Player01::ACPP_Player01()
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	BaseTurnRate = 45.f;
-	BaseTurnRate = 45.f;
+	BaseLookUPRate = 45.f;
 
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -73,18 +71,16 @@ void ACPP_Player01::BeginPlay()
 void ACPP_Player01::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 }
 
 void ACPP_Player01::MoveForward(float Value)
 {
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
-		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// get forward vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		AddMovementInput(Direction, Value);
 	}
@@ -94,13 +90,10 @@ void ACPP_Player01::MoveRight(float Value)
 {
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
-		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
 }

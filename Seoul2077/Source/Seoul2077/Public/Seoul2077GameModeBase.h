@@ -14,4 +14,6 @@ class SEOUL2077_API ASeoul2077GameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	ASeoul2077GameModeBase();
 };

@@ -36,15 +36,12 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UStaticMeshComponent* meshComp;
 
-	// 필요속성 : 총구위치, 공장
 	UPROPERTY(EditAnywhere, Category = "Component")
 	class UArrowComponent* firePosition;
 
-	// PlayerMove 컴포넌트 추가
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UPlayerMove* playerMove;
 
-	// PlayerFire 컴포넌트 추가
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UPlayerFire* playerFire;
 
@@ -60,13 +57,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	float BaseLookUPRate;
 
-protected:
+public:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void TurnAtRate(float Rate);
 	void LookUpAtRate(float Rate);
 
-protected:
+public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 public:
