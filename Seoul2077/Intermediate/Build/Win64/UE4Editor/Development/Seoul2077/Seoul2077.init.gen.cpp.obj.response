@@ -31,7 +31,7 @@
 /wd4244
 /wd4838
 /I .
-/I C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Source\Seoul2077\Private
+/I C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Source\Seoul2077\Private
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\Engine
 /I Runtime
 /I Runtime\Engine\Classes
@@ -231,9 +231,9 @@
 /I Editor\Kismet\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
-/I C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077
-/I C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Source
-/I C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Source\Seoul2077\Public
+/I C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077
+/I C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Source
+/I C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Source\Seoul2077\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -263,12 +263,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\Seoul2077.init.gen.cpp"
-/FI"C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h"
-/Fo"C:\project\Seoul-2077-main\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Seoul2077.init.gen.cpp.obj"
+/FI"C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\Seoul2077.init.gen.cpp"
+/FI"C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h"
+/Fo"C:\Users\user\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Seoul2077.init.gen.cpp.obj"
 /TP
 /GR-
 /W4
