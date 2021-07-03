@@ -40,7 +40,6 @@ void EmptyLinkFunctionForGeneratedCodeSeoul2077GameModeBase() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASeoul2077GameModeBase_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation" },
 		{ "IncludePath", "Seoul2077GameModeBase.h" },
 		{ "ModuleRelativePath", "Public/Seoul2077GameModeBase.h" },
@@ -74,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeSeoul2077GameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASeoul2077GameModeBase, 82480258);
+	IMPLEMENT_CLASS(ASeoul2077GameModeBase, 758176113);
 	template<> SEOUL2077_API UClass* StaticClass<ASeoul2077GameModeBase>()
 	{
 		return ASeoul2077GameModeBase::StaticClass();

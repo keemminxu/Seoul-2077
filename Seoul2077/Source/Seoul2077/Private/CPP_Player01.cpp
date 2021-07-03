@@ -9,6 +9,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Bullet.h"
+
+DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
 // Sets default values
 ACPP_Player01::ACPP_Player01()
@@ -20,10 +23,17 @@ ACPP_Player01::ACPP_Player01()
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	meshComp->SetupAttachment(boxComp);
 
-	firePosition = CreateDefaultSubobject<UArrowComponent>(TEXT("FirePosition"));
-	firePosition->SetupAttachment(boxComp);
-	firePosition->SetRelativeLocation(FVector(10, 0, 0));
-	
+	gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Gun"));		
+	gun->bCastDynamicShadow = false;
+	gun->CastShadow = false;
+	gun->SetupAttachment(meshComp, TEXT("GripPoint"));
+
+	muzzle = CreateDefaultSubobject<USceneComponent>(TEXT("Muzzle"));
+	muzzle->SetupAttachment(gun);
+	muzzle->SetRelativeLocation(FVector(0.2f, 48.4f, -10.6f));
+
+	GunOffset = FVector(0.0f, 0.0f, 0.0f);
+
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	BaseTurnRate = 45.f;
@@ -47,6 +57,8 @@ ACPP_Player01::ACPP_Player01()
 	followCamera->SetupAttachment(cameraBoom, USpringArmComponent::SocketName);
 	followCamera->bUsePawnControlRotation = false; 
 
+	
+
 	ConstructorHelpers::FObjectFinder<UStaticMesh> TempMesh(TEXT("StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
 	if (TempMesh.Succeeded())
 	{
@@ -65,6 +77,7 @@ void ACPP_Player01::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	gun->AttachToComponent(meshComp, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
 }
 
 // Called every frame
@@ -72,6 +85,26 @@ void ACPP_Player01::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+}
+
+void ACPP_Player01::OnFire()
+{
+	if (bulletClass != nullptr)
+	{
+		UWorld* const World = GetWorld();
+		if (World != nullptr)
+		{
+	
+				const FRotator SpawnRotation(10, GetControlRotation().Yaw, 0);
+				
+				const FVector SpawnLocation = ((muzzle != nullptr) ? muzzle->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+
+				FActorSpawnParameters ActorSpawnParams;
+				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+
+				World->SpawnActor<ABullet>(bulletClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+		}
+	}
 }
 
 void ACPP_Player01::MoveForward(float Value)
@@ -123,5 +156,7 @@ void ACPP_Player01::SetupPlayerInputComponent(class UInputComponent* PlayerInput
 	PlayerInputComponent->BindAxis("TurnRate", this, &ACPP_Player01::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ACPP_Player01::LookUpAtRate);
+
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ACPP_Player01::OnFire);
 }
 

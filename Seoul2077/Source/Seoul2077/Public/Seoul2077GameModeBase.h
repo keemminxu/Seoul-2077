@@ -6,9 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "Seoul2077GameModeBase.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class SEOUL2077_API ASeoul2077GameModeBase : public AGameModeBase
 {

@@ -1,3 +1,12 @@
-﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\user\Documents\GitHub\Seoul-2077).
-  Target is up to date
-  Total execution time: 0.50 seconds
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\kim\Documents\GitHub\Seoul-2077).
+  Building Seoul2077Editor...
+  Using Visual Studio 2019 14.28.29915 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 4 actions with 8 processes...
+    [1/4] CPP_Player01.cpp
+    [2/4] UE4Editor-Seoul2077-0022.lib
+       C:\Users\kim\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0022.lib 라이브러리 및 C:\Users\kim\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0022.exp 개체를 생성하고 있습니다.
+    [3/4] UE4Editor-Seoul2077-0022.dll
+       C:\Users\kim\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0022.suppressed.lib 라이브러리 및 C:\Users\kim\Documents\GitHub\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0022.suppressed.exp 개체를 생성하고 있습니다.
+    [4/4] Seoul2077Editor.target
+  Total time in Parallel executor: 2.22 seconds
+  Total execution time: 3.20 seconds

@@ -9,9 +9,12 @@
 #include <Components/ArrowComponent.h>
 #include "PlayerMove.h"
 #include "PlayerFire.h"
+#include <Components/SceneComponent.h>
+#include <Components/SkeletalMeshComponent.h>
 #include "CPP_Player01.generated.h"
 
-UCLASS(config=Game)
+
+UCLASS(config = Game)
 class SEOUL2077_API ACPP_Player01 : public ACharacter
 {
 	GENERATED_BODY()
@@ -36,8 +39,8 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UStaticMeshComponent* meshComp;
 
-	UPROPERTY(EditAnywhere, Category = "Component")
-	class UArrowComponent* firePosition;
+	UPROPERTY(VisibleDefaultsOnly, Category = "Mesh")
+	class USkeletalMeshComponent* gun;
 
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UPlayerMove* playerMove;
@@ -57,7 +60,20 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	float BaseLookUPRate;
 
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	USceneComponent* muzzle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay")
+	FVector GunOffset;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Bullet")
+	TSubclassOf<class ABullet> bulletClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay")
+	uint8 bUsingMotionControllers : 1;
+
 public:
+	void OnFire();
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void TurnAtRate(float Rate);
