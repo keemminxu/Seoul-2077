@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\user\\Downloads\\Seoul-2077-main-20210706T000941Z-001\\Seoul-2077-main\\Seoul2077\\Source\\Seoul2077\\Seoul2077.Build.cs",
-		"C:\\Users\\user\\Downloads\\Seoul-2077-main-20210706T000941Z-001\\Seoul-2077-main\\Seoul2077\\Source\\Seoul2077.Target.cs",
-		"C:\\Users\\user\\Downloads\\Seoul-2077-main-20210706T000941Z-001\\Seoul-2077-main\\Seoul2077\\Source\\Seoul2077Editor.Target.cs"
+		"C:\\project\\Github\\Seoul-2077\\Seoul2077\\Source\\Seoul2077\\Seoul2077.Build.cs",
+		"C:\\project\\Github\\Seoul-2077\\Seoul2077\\Source\\Seoul2077.Target.cs",
+		"C:\\project\\Github\\Seoul-2077\\Seoul2077\\Source\\Seoul2077Editor.Target.cs"
 	],
 	"EngineVersion": "4.26.2"
 }

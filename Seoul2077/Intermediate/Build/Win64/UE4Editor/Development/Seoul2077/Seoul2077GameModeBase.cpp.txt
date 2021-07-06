@@ -1,18 +1,18 @@
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Source\Seoul2077\Public\Seoul2077GameModeBase.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h
+C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077\Public\Seoul2077GameModeBase.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\Seoul2077GameModeBase.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Source\Seoul2077\Public\CPP_HUD.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\Seoul2077GameModeBase.generated.h
+C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077\Public\CPP_HUD.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\CPP_HUD.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Source\Seoul2077\Public\CPP_Player01.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\CPP_HUD.generated.h
+C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077\Public\CPP_Player01.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
@@ -25,8 +25,8 @@ C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Components/ArrowComponent.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ArrowComponent.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Source\Seoul2077\Public\PlayerMove.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\PlayerMove.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Source\Seoul2077\Public\PlayerFire.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\PlayerFire.generated.h
-C:\Users\user\Downloads\Seoul-2077-main-20210706T000941Z-001\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\CPP_Player01.generated.h
+C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077\Public\PlayerMove.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\PlayerMove.generated.h
+C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077\Public\PlayerFire.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\PlayerFire.generated.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\CPP_Player01.generated.h
