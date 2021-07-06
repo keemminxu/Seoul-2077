@@ -2665,3 +2665,11 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2021.07.06-03.05.44:481][226]AssetCheck: New page: Asset Save: multiple assets
 [2021.07.06-03.05.44:481][226]LogContentValidation: Display: Validating MapBuildDataRegistry /Game/Main_Menu_Levels/Main_Menu_Level_BuiltData.Main_Menu_Level_BuiltData
 [2021.07.06-03.05.44:481][226]LogContentValidation: Display: Validating World /Game/Main_Menu_Levels/Main_Menu_Level.Main_Menu_Level
+[2021.07.06-03.15.44:490][160]LogUObjectHash: Compacting FUObjectHashTables data took   3.58ms
+[2021.07.06-03.15.44:492][160]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Main_Menu_Levels/Main_Menu_Level' took 0.044
+[2021.07.06-03.15.44:493][160]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Blueprints/BP_CPP_Player01] ([2] browsable assets)...
+[2021.07.06-03.15.44:504][160]OBJ SavePackage:     Rendered thumbnail for [Blueprint /Game/Blueprints/BP_CPP_Player01.BP_CPP_Player01]
+[2021.07.06-03.15.44:511][160]OBJ SavePackage:     Rendered thumbnail for [Blueprint /Game/Blueprints/BP_CPP_Player01.BP_CPP_Player01]
+[2021.07.06-03.15.44:511][160]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/BP_CPP_Player01]
+[2021.07.06-03.15.44:519][160]LogSavePackage: Moving '../../../../../../project/Github/Seoul-2077/Seoul2077/Saved/BP_CPP_Player01_Auto254083C3E4497DEE4BFFD60B45E1D13DA.tmp' to '../../../../../../project/Github/Seoul-2077/Seoul2077/Saved/Autosaves/Game/Blueprints/BP_CPP_Player01_Auto2.uasset'
+[2021.07.06-03.15.44:519][160]LogFileHelpers: Auto-saving content packages took 0.027
