@@ -87,7 +87,7 @@ void ACPP_Player01::OnFire()
 		if (World != nullptr)
 		{
 	
-				const FRotator SpawnRotation(5, GetControlRotation().Yaw, 0);
+				const FRotator SpawnRotation(0, GetControlRotation().Yaw, 0);
 				
 				const FVector SpawnLocation = ((muzzle != nullptr) ? muzzle->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
 

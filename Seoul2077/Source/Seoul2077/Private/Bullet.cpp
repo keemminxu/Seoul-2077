@@ -47,7 +47,6 @@ void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), explosionFactory, GetActorTransform());
 }
 
 // Called every frame
