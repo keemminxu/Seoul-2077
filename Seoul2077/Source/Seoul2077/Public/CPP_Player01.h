@@ -51,6 +51,7 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UPlayerMove* playerMove;
 
+
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UPlayerFire* playerFire;
 

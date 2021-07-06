@@ -4,6 +4,7 @@
 #include "Bullet.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values
 ABullet::ABullet()
@@ -45,7 +46,8 @@ void ABullet::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitive
 void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), explosionFactory, GetActorTransform());
 }
 
 // Called every frame

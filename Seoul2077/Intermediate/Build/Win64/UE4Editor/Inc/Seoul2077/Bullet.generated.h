@@ -76,7 +76,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABullet); \
 
 #define Seoul2077_Source_Seoul2077_Public_Bullet_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CollisionComp() { return STRUCT_OFFSET(ABullet, CollisionComp); } \
-	FORCEINLINE static uint32 __PPO__ProjectileMovement() { return STRUCT_OFFSET(ABullet, ProjectileMovement); }
+	FORCEINLINE static uint32 __PPO__ProjectileMovement() { return STRUCT_OFFSET(ABullet, ProjectileMovement); } \
+	FORCEINLINE static uint32 __PPO__explosionFactory() { return STRUCT_OFFSET(ABullet, explosionFactory); }
 
 
 #define Seoul2077_Source_Seoul2077_Public_Bullet_h_13_PROLOG

@@ -10,6 +10,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Bullet.h"
+#include <Kismet/GameplayStatics.h>
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -86,7 +87,7 @@ void ACPP_Player01::OnFire()
 		if (World != nullptr)
 		{
 	
-				const FRotator SpawnRotation(10, GetControlRotation().Yaw, 0);
+				const FRotator SpawnRotation(5, GetControlRotation().Yaw, 0);
 				
 				const FVector SpawnLocation = ((muzzle != nullptr) ? muzzle->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
 
@@ -94,6 +95,8 @@ void ACPP_Player01::OnFire()
 				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
 				World->SpawnActor<ABullet>(bulletClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+
+				
 		}
 	}
 }

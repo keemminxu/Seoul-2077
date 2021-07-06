@@ -21,6 +21,9 @@ class SEOUL2077_API ABullet : public AActor
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Setting")
+	class UParticleSystem* explosionFactory;
+
 public:	
 	// Sets default values for this actor's properties
 	ABullet();
