@@ -22,11 +22,15 @@ ACPP_Player01::ACPP_Player01()
 	boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
 	meshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
 	meshComp->SetupAttachment(boxComp);
+	swatComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Swat"));
+	swatComp->SetupAttachment(meshComp);
 
 	gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Gun"));		
 	gun->bCastDynamicShadow = false;
 	gun->CastShadow = false;
-	gun->SetupAttachment(meshComp, TEXT("GripPoint"));
+	gun->SetupAttachment(meshComp);
+	gunComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("GunComponent"));
+	gunComp->SetupAttachment(gun);
 
 	muzzle = CreateDefaultSubobject<USceneComponent>(TEXT("Muzzle"));
 	muzzle->SetupAttachment(gun);
@@ -57,19 +61,6 @@ ACPP_Player01::ACPP_Player01()
 	followCamera->SetupAttachment(cameraBoom, USpringArmComponent::SocketName);
 	followCamera->bUsePawnControlRotation = false; 
 
-	
-
-	ConstructorHelpers::FObjectFinder<UStaticMesh> TempMesh(TEXT("StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
-	if (TempMesh.Succeeded())
-	{
-		meshComp->SetStaticMesh(TempMesh.Object);
-	}
-
-	ConstructorHelpers::FObjectFinder<UMaterial> TempMat(TEXT("Material'/Engine/MapTemplates/Materials/BasicAsset01.BasicAsset01'"));
-	if (TempMat.Succeeded())
-	{
-		meshComp->SetMaterial(0, TempMat.Object);
-	}
 }
 
 // Called when the game starts or when spawned
@@ -77,7 +68,7 @@ void ACPP_Player01::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	gun->AttachToComponent(meshComp, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true));
+	gun->AttachToComponent(meshComp, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
 }
 
 // Called every frame

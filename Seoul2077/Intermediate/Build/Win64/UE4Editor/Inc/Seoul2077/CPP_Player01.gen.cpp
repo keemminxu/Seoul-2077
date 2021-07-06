@@ -51,9 +51,17 @@ void EmptyLinkFunctionForGeneratedCodeCPP_Player01() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_meshComp;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_swatComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_swatComp;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gun_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_gun;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_gunComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_gunComp;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_playerMove_MetaData[];
 #endif
@@ -127,6 +135,14 @@ void EmptyLinkFunctionForGeneratedCodeCPP_Player01() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_Player01_Statics::NewProp_meshComp = { "meshComp", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACPP_Player01, meshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_meshComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_meshComp_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_Player01_Statics::NewProp_swatComp_MetaData[] = {
+		{ "Category", "Component" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/CPP_Player01.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_Player01_Statics::NewProp_swatComp = { "swatComp", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACPP_Player01, swatComp), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_swatComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_swatComp_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gun_MetaData[] = {
 		{ "Category", "Mesh" },
 		{ "EditInline", "true" },
@@ -134,6 +150,14 @@ void EmptyLinkFunctionForGeneratedCodeCPP_Player01() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gun = { "gun", nullptr, (EPropertyFlags)0x00100000000b0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACPP_Player01, gun), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gun_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gun_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gunComp_MetaData[] = {
+		{ "Category", "Component" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/CPP_Player01.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gunComp = { "gunComp", nullptr, (EPropertyFlags)0x00100000000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACPP_Player01, gunComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gunComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gunComp_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACPP_Player01_Statics::NewProp_playerMove_MetaData[] = {
 		{ "Category", "Component" },
@@ -216,7 +240,9 @@ void EmptyLinkFunctionForGeneratedCodeCPP_Player01() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACPP_Player01_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_boxComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_meshComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_swatComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gun,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_gunComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_playerMove,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_playerFire,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACPP_Player01_Statics::NewProp_followCamera,
@@ -255,7 +281,7 @@ void EmptyLinkFunctionForGeneratedCodeCPP_Player01() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACPP_Player01, 2597210974);
+	IMPLEMENT_CLASS(ACPP_Player01, 893978936);
 	template<> SEOUL2077_API UClass* StaticClass<ACPP_Player01>()
 	{
 		return ACPP_Player01::StaticClass();

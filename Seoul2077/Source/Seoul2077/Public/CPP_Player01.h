@@ -39,8 +39,14 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UStaticMeshComponent* meshComp;
 
+	UPROPERTY(VisibleAnywhere, Category = "Component")
+	class USkeletalMeshComponent* swatComp;
+
 	UPROPERTY(VisibleDefaultsOnly, Category = "Mesh")
 	class USkeletalMeshComponent* gun;
+
+	UPROPERTY(VisibleAnywhere, Category = "Component")
+	class UStaticMeshComponent* gunComp;
 
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UPlayerMove* playerMove;
