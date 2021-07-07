@@ -46,6 +46,7 @@ void ABullet::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitive
 void ABullet::BeginPlay()
 {
 	Super::BeginPlay();
+	UGameplayStatics::PlaySound2D(GetWorld(), explosionSound);
 
 }
 
