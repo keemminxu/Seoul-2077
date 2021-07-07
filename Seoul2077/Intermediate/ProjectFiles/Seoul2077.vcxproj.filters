@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Seoul2077.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5A6C79AC-AD73-40E9-A3D0-484B333B09FB}</UniqueIdentifier>
+      <UniqueIdentifier>{09992BC7-409A-4849-AA45-E2EB14B46356}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{71D4F321-551F-4D5D-875C-EF01CBA7DB85}</UniqueIdentifier>
+      <UniqueIdentifier>{B608C6D2-ADB1-47EA-8864-E696493D59CC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,15 +27,18 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Seoul2077">
-      <UniqueIdentifier>{9E9156B2-2499-4B2E-8572-DC96B30EEEDC}</UniqueIdentifier>
+      <UniqueIdentifier>{FE2406C4-498C-465D-A989-4C80FA1BBBED}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077\Seoul2077.Build.cs">
       <Filter>Source\Seoul2077</Filter>
     </None>
     <Filter Include="Source\Seoul2077\Private">
-      <UniqueIdentifier>{E0DA1B1C-6F25-4A48-9773-89A321DE9B69}</UniqueIdentifier>
+      <UniqueIdentifier>{9DAA907D-BB51-4E52-B2E5-28956270C9A5}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Seoul2077\Private\Bullet.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_Character.cpp">
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_HUD.cpp">
@@ -57,9 +60,12 @@
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Seoul2077\Public">
-      <UniqueIdentifier>{65D2B3A6-CA85-4F55-9EDF-20F91B9EFD9F}</UniqueIdentifier>
+      <UniqueIdentifier>{D633C612-32EB-4D5F-AB1F-6AE7121F36B0}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Seoul2077\Public\Bullet.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_Character.h">
       <Filter>Source\Seoul2077\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_HUD.h">

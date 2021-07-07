@@ -2,11 +2,11 @@
   Building Seoul2077Editor...
   Using Visual Studio 2019 14.29.30038 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 4 actions with 4 processes...
-    [1/4] Bullet.cpp
-    [2/4] UE4Editor-Seoul2077-0002.lib
-       C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0002.lib 라이브러리 및 C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0002.exp 개체를 생성하고 있습니다.
-    [3/4] UE4Editor-Seoul2077-0002.dll
-       C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0002.suppressed.lib 라이브러리 및 C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0002.suppressed.exp 개체를 생성하고 있습니다.
+    [1/4] CPP_HUD.cpp
+    [2/4] UE4Editor-Seoul2077-0004.lib
+       C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0004.lib 라이브러리 및 C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0004.exp 개체를 생성하고 있습니다.
+    [3/4] UE4Editor-Seoul2077-0004.dll
+       C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0004.suppressed.lib 라이브러리 및 C:\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0004.suppressed.exp 개체를 생성하고 있습니다.
     [4/4] Seoul2077Editor.target
-  Total time in Parallel executor: 58.48 seconds
-  Total execution time: 59.64 seconds
+  Total time in Parallel executor: 59.36 seconds
+  Total execution time: 60.35 seconds

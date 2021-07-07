@@ -19,12 +19,12 @@ void ACPP_HUD::DrawHUD()
 {
 	Super::DrawHUD();
 
-	const FVector2D Center(Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
+	/*const FVector2D Center(Canvas->ClipX * 0.5f, Canvas->ClipY * 0.5f);
 
 	const FVector2D CrosshairDrawPosition((Center.X),
 	(Center.Y - 50.0f));
 
 	FCanvasTileItem TileItem(CrosshairDrawPosition, CrosshairTex->Resource, FLinearColor::White);
 	TileItem.BlendMode = SE_BLEND_Translucent;
-	Canvas->DrawItem(TileItem);
+	Canvas->DrawItem(TileItem);*/
 }
