@@ -1,5 +1,0 @@
-C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077/Public/PlayerFire.h
-C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\PlayerFire.generated.h
