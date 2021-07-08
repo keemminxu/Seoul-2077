@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Seoul2077",
+			"Path": "C:\\project\\Github\\Seoul-2077\\Seoul2077\\Source\\Seoul2077.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Seoul2077Editor",
+			"Path": "C:\\project\\Github\\Seoul-2077\\Seoul2077\\Source\\Seoul2077Editor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
