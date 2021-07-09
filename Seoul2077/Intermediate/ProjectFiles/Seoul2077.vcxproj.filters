@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Seoul2077.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{90F7F455-8069-48DB-91FE-FA9EA96D4A9E}</UniqueIdentifier>
+      <UniqueIdentifier>{EB5E7687-7513-47CF-9C42-75C3BAB21F60}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,9 @@
     <None Include="..\..\Source\Seoul2077Editor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\SCK_Casual01.png" />
     <Filter Include="Config">
-      <UniqueIdentifier>{1FFF96BC-0774-4006-A488-68358CC65120}</UniqueIdentifier>
+      <UniqueIdentifier>{6CC2EDC3-828B-4D1B-9F80-7A89119B2527}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,13 +28,13 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Seoul2077">
-      <UniqueIdentifier>{735FE1A8-0028-4716-84A6-B23EC8747B7F}</UniqueIdentifier>
+      <UniqueIdentifier>{3960D05B-8A80-4603-B30E-DD19DAC419B9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077\Seoul2077.Build.cs">
       <Filter>Source\Seoul2077</Filter>
     </None>
     <Filter Include="Source\Seoul2077\Private">
-      <UniqueIdentifier>{D3B57DE3-027E-42EB-802A-DDBA2339B065}</UniqueIdentifier>
+      <UniqueIdentifier>{F0F4AC3D-2CD8-4DF6-9059-32BDD2F22FFD}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Seoul2077\Private\Bullet.cpp">
       <Filter>Source\Seoul2077\Private</Filter>
@@ -60,7 +61,7 @@
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Seoul2077\Public">
-      <UniqueIdentifier>{EC14F912-43CE-4986-AFEA-C30B6DDA49EB}</UniqueIdentifier>
+      <UniqueIdentifier>{D0D826EC-E239-4277-9FD7-49C7868D3891}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Seoul2077\Public\Bullet.h">
       <Filter>Source\Seoul2077\Public</Filter>
