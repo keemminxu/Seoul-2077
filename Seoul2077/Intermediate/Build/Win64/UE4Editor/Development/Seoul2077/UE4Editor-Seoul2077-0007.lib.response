@@ -1,0 +1,28 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Seoul2077-0007.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\Seoul2077Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\CPP_HUD.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\CPP_Player01.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Bullet.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\CPP_Character.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\PlayerFire.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\PlayerMove.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Seoul2077.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Seoul2077GameModeBase.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\PlayerMove.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\CPP_Character.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Seoul2077.init.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\PlayerFire.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\CPP_Player01.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Bullet.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\CPP_HUD.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Seoul2077GameModeBase.gen.cpp.obj"
+"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Default.rc2.res"
+/OUT:"D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\UE4Editor-Seoul2077-0007.lib"
+/INCLUDE:IMPLEMENT_MODULE_Seoul2077
