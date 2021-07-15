@@ -1,9 +1,9 @@
-D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Development\Seoul2077\Definitions.Seoul2077.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Source\Seoul2077/Public/Seoul2077GameModeBase.h
+C:\project\Github\Seoul-2077\Seoul2077\Source\Seoul2077/Public/Seoul2077GameModeBase.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-D:\Seoul-2077-main (3)\Seoul-2077-main\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\Seoul2077GameModeBase.generated.h
+C:\project\Github\Seoul-2077\Seoul2077\Intermediate\Build\Win64\UE4Editor\Inc\Seoul2077\Seoul2077GameModeBase.generated.h
