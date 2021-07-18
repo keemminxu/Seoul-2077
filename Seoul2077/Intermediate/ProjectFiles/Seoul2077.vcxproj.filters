@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Seoul2077.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{03018D26-AB5B-4351-A13A-D92C5117042A}</UniqueIdentifier>
+      <UniqueIdentifier>{6E3DA2AA-E2BB-485D-8DE7-EDED078B68CF}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077.Target.cs">
       <Filter>Source</Filter>
@@ -13,39 +13,39 @@
     </None>
     <None Include="..\..\SCK_Casual01.png" />
     <Filter Include="Config">
-      <UniqueIdentifier>{1B6D8846-B4E9-4DB5-9B85-DF958BA48199}</UniqueIdentifier>
+      <UniqueIdentifier>{E82E7E44-3015-4A4B-8232-6AD9F7DEAC2D}</UniqueIdentifier>
     </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
     <None Include="..\..\Config\DefaultEngine.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
-    <None Include="..\..\Config\DefaultEditor.ini">
-      <Filter>Config</Filter>
-    </None>
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Seoul2077">
-      <UniqueIdentifier>{F179F7D4-71C0-4D14-8403-963FBF3BAA6B}</UniqueIdentifier>
+      <UniqueIdentifier>{6E5222BE-A249-4CD4-83E7-B11A2EC66968}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Seoul2077\Seoul2077.Build.cs">
       <Filter>Source\Seoul2077</Filter>
     </None>
     <Filter Include="Source\Seoul2077\Private">
-      <UniqueIdentifier>{F8270776-C5E2-4EE0-8E3D-925B1E9F4179}</UniqueIdentifier>
+      <UniqueIdentifier>{5DFFE7D6-8290-4B20-A836-2CD03DAF3C0D}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_HUD.cpp">
-      <Filter>Source\Seoul2077\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_Player01.cpp">
-      <Filter>Source\Seoul2077\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Seoul2077\Private\Bullet.cpp">
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_Character.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_HUD.cpp">
+      <Filter>Source\Seoul2077\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Seoul2077\Private\CPP_Player01.cpp">
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Seoul2077\Private\PlayerFire.cpp">
@@ -61,18 +61,18 @@
       <Filter>Source\Seoul2077\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Seoul2077\Public">
-      <UniqueIdentifier>{9A3A16C7-8213-4590-B63C-7388D7DE57B1}</UniqueIdentifier>
+      <UniqueIdentifier>{BF2DEA9B-D20D-4250-A5E5-F4CCBB64B5FF}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_HUD.h">
-      <Filter>Source\Seoul2077\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_Player01.h">
-      <Filter>Source\Seoul2077\Public</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Seoul2077\Public\Bullet.h">
       <Filter>Source\Seoul2077\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_Character.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_HUD.h">
+      <Filter>Source\Seoul2077\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Seoul2077\Public\CPP_Player01.h">
       <Filter>Source\Seoul2077\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Seoul2077\Public\PlayerFire.h">
