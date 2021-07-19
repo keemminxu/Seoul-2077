@@ -24,7 +24,7 @@ class SEOUL2077_API ABullet : public AActor
 	UPROPERTY(EditDefaultsOnly, Category = "Setting")
 	class UParticleSystem* explosionFactory;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Sound")
+	UPROPERTY(EditAnywhere, Category = "Sound")
 	class USoundBase* explosionSound;
 
 public:	
