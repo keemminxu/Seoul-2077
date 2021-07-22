@@ -1,5 +1,0 @@
-민수: player move, player fire, bullet, 카메라 엑터 붙이기(마우스로 화면 회전), 중력설정(점프 가능)
-
-일수형: 화면전환(맵 이동), 캐릭터 선택, 시작 및 끝 UI (start, playing, end 게임 모드 설정)
-
-우수형: enemy move(네비게이션), enemy fire(플레이어 맞을 확률 조정), enemy 공장
